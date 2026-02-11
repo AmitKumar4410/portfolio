@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dev Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --bg-dark: #0a0a0e;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-primary: #00f2ff;
+            /* Cyber Cyan */
+            --neon-secondary: #bd00ff;
+            /* Cyber Purple */
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMATED BACKGROUND --- */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+            z-index: -1;
+            animation: bgPulse 10s infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* --- UTILS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            background: linear-gradient(to right, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .highlight {
+            color: var(--neon-primary);
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* --- GLOW BUTTONS --- */
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--neon-primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- GLASS CARDS --- */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-primary);
+            box-shadow: 0 10px 40px -10px rgba(0, 242, 255, 0.15);
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-section {
+            padding: 100px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
+            color: var(--neon-primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-section {
+            padding: 100px 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            background: #222;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            /* Placeholder gradient for no image */
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        .tags span {
+            font-size: 0.75rem;
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--neon-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+        }
+
+        /* --- TOOLS SECTION --- */
+        .tools-section {
+            padding: 80px 0;
+        }
+
+        /* --- ANIMATION ON SCROLL --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 100px;
+            color: var(--text-muted);
+        }
+
+        /* MOBILE FIXES */
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-gradient"></div>
+
+    <header class="container hero">
+        <p class="hidden">HI, I'M [YOUR NAME]</p>
+        <h1 class="hidden">HTML5 Game<br><span class="highlight">Architect</span></h1>
+        <p class="hidden">
+            Specializing in <strong>Cocos Creator</strong>. I build high-performance web games and custom engine tools.
+            <br><br>
+            <span style="font-size: 0.9rem; opacity: 0.7;">Current: Playzhub • Exp: 1.8 Years</span>
+        </p>
+        <div class="btn-group hidden">
+            <a href="#projects" class="btn btn-primary">See My Games</a>
+            <a href="mailto:[YOUR EMAIL]" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </header>
+
+    <section class="container skills-section hidden">
+        <h2>Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="glass-card">
+                <span class="skill-icon">⚡</span>
+                <h3>Cocos Creator</h3>
+                <p style="color:var(--text-muted); font-size: 0.9rem;">Primary Engine. Expert in TypeScript scripting
+                    and optimization.</p>
+            </div>
+            <div class="glass-card">
+                <span class="skill-icon">🛠</span>
+                <h3>Tools & Utils</h3>
+                <p style="color:var(--text-muted); font-size: 0.9rem;">Building extensions, responsive UI frameworks,
+                    and automation scripts.</p>
+            </div>
+            <div class="glass-card">
+                <span class="skill-icon">🎮</span>
+                <h3>Engines</h3>
+                <p style="color:var(--text-muted); font-size: 0.9rem;">Phaser.js (Proficient), Unity (Familiar).</p>
+            </div>
+            <div class="glass-card">
+                <span class="skill-icon">📐</span>
+                <h3>Engineering</h3>
+                <p style="color:var(--text-muted); font-size: 0.9rem;">Mech. Diploma background applied to game physics
+                    and logic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container projects-section hidden">
+        <h2>Featured Works</h2>
+        <div class="project-grid">
+
+            <div class="glass-card">
+                <div class="project-img">GAME SCREENSHOT HERE</div>
+                <h3>Action Runner</h3>
+                <p style="margin: 10px 0; color: #ccc;">A fast-paced infinite runner optimized for low-end mobile
+                    browsers on Playzhub.</p>
+                <div class="tags">
+                    <span>Cocos Creator</span>
+                    <span>TypeScript</span>
+                </div>
+                <br>
+                <a href="#" style="color: var(--neon-primary); font-weight: bold;">Play Demo →</a>
+            </div>
+
+            <div class="glass-card">
+                <div class="project-img">GAME SCREENSHOT HERE</div>
+                <h3>Puzzle Quest</h3>
+                <p style="margin: 10px 0; color: #ccc;">Logic puzzle game with 50+ levels. Implemented custom responsive
+                    layouts for foldable devices.</p>
+                <div class="tags">
+                    <span>Cocos Creator</span>
+                    <span>Algorithm</span>
+                </div>
+                <br>
+                <a href="#" style="color: var(--neon-primary); font-weight: bold;">Play Demo →</a>
+            </div>
+
+            <div class="glass-card">
+                <div class="project-img">GAME SCREENSHOT HERE</div>
+                <h3>Phaser Prototype</h3>
+                <p style="margin: 10px 0; color: #ccc;">Personal project exploring tilemap collisions and particle
+                    effects in Phaser.</p>
+                <div class="tags">
+                    <span>Phaser.js</span>
+                    <span>JavaScript</span>
+                </div>
+                <br>
+                <a href="#" style="color: var(--neon-primary); font-weight: bold;">View Code →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container tools-section hidden">
+        <h2>Engineering & Tools</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">I don't just play games; I build the tools to make
+            them better.</p>
+
+        <div style="display: grid; gap: 20px;">
+            <div class="glass-card"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <h3 style="color: var(--neon-primary);">Responsive UI Utility</h3>
+                    <p style="font-size: 0.9rem; color: #ccc;">A Cocos component to handle safe-areas and aspect ratios
+                        automatically.</p>
+                </div>
+                <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">View Logic</a>
+            </div>
+
+            <div class="glass-card"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <h3 style="color: var(--neon-secondary);">Asset Compressor Ext.</h3>
+                    <p style="font-size: 0.9rem; color: #ccc;">Editor extension to automate texture settings for web
+                        builds.</p>
+                </div>
+                <span style="color: #666; font-size: 0.8rem;">Internal Tool</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">Ready to Level Up?</h2>
+            <p>Open for opportunities in HTML5 Game Development.</p>
+            <br>
+            <a href="mailto:your.email@example.com" class="btn btn-primary">Email Me</a>
+            <br><br>
+            <small>&copy; 2024 [Your Name]. Crafted with code.</small>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
