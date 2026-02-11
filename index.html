@@ -4,404 +4,614 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Dev Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Game Developer Portfolio - Specializing in Cocos Creator, HTML5 Games, and Game Development. Browse my featured games and design pattern implementations.">
+    <meta name="keywords"
+        content="Game Developer, Cocos Creator, HTML5 Games, TypeScript, Game Design Patterns, Web Games">
+    <meta name="author" content="Amit Kumar">
 
-    <style>
-        /* --- CORE VARIABLES --- */
-        :root {
-            --bg-dark: #0a0a0e;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --neon-primary: #00f2ff;
-            /* Cyber Cyan */
-            --neon-secondary: #bd00ff;
-            /* Cyber Purple */
-            --text-main: #ffffff;
-            --text-muted: #b0b0b0;
-        }
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Game Developer Portfolio - HTML5 Game Developer">
+    <meta property="og:description"
+        content="Specialized in Cocos Creator and HTML5 game development with 2+ years of experience">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com">
+    <meta property="og:image" content="https://yourportfolio.com/assets/images/og-image.jpg">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game Developer Portfolio">
+    <meta name="twitter:description" content="HTML5 Game Developer specializing in Cocos Creator">
+    <meta name="twitter:image" content="https://yourportfolio.com/assets/images/twitter-card.jpg">
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
+    <title>Game Developer Portfolio | HTML5 Game Developer</title>
 
-        /* --- ANIMATED BACKGROUND --- */
-        .background-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
-            z-index: -1;
-            animation: bgPulse 10s infinite alternate;
-        }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
 
-        @keyframes bgPulse {
-            0% {
-                transform: scale(1);
-            }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
 
-            100% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* --- UTILS --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            background: linear-gradient(to right, #fff, #b0b0b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .highlight {
-            color: var(--neon-primary);
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
-        /* --- GLOW BUTTONS --- */
-        .btn-group {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--neon-primary);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.8);
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--glass-border);
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* --- GLASS CARDS --- */
-        .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
-            transition: 0.4s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-primary);
-            box-shadow: 0 10px 40px -10px rgba(0, 242, 255, 0.15);
-        }
-
-        /* --- SKILLS SECTION --- */
-        .skills-section {
-            padding: 100px 0;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .skill-icon {
-            font-size: 1.5rem;
-            color: var(--neon-primary);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* --- PROJECTS SECTION --- */
-        .projects-section {
-            padding: 100px 0;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 220px;
-            background: #222;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            object-fit: cover;
-            /* Placeholder gradient for no image */
-            background: linear-gradient(45deg, #1a1a2e, #16213e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            font-size: 0.8rem;
-        }
-
-        .tags span {
-            font-size: 0.75rem;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--neon-primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            margin-right: 8px;
-        }
-
-        /* --- TOOLS SECTION --- */
-        .tools-section {
-            padding: 80px 0;
-        }
-
-        /* --- ANIMATION ON SCROLL --- */
-        .hidden {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 50px 0;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 100px;
-            color: var(--text-muted);
-        }
-
-        /* MOBILE FIXES */
-        @media(max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .btn-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/sections.css">
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
+    <!-- Animated Background -->
     <div class="background-gradient"></div>
 
-    <header class="container hero">
-        <p class="hidden">HI, I'M [YOUR NAME]</p>
-        <h1 class="hidden">HTML5 Game<br><span class="highlight">Architect</span></h1>
-        <p class="hidden">
-            Specializing in <strong>Cocos Creator</strong>. I build high-performance web games and custom engine tools.
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">🎮 Portfolio</a>
+            <ul class="navbar-nav">
+                <li><a href="#home" class="navbar-link active">Home</a></li>
+                <li><a href="#about" class="navbar-link">About</a></li>
+                <li><a href="#skills" class="navbar-link">Skills</a></li>
+                <li><a href="#patterns" class="navbar-link">Patterns</a></li>
+                <li><a href="#projects" class="navbar-link">Projects</a></li>
+                <li><a href="#contact" class="navbar-link">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="container hero">
+        <p class="hero-subtitle hidden" data-type="true">HI, I'M AMIT KUMAR</p>
+        <h1 class="hidden">
+            HTML5 Game<br>
+            <span class="highlight">Architect</span>
+        </h1>
+        <p class="hero-description hidden">
+            Specializing in <strong>Cocos Creator</strong> and TypeScript. I build high-performance web games,
+            custom engine tools, and scalable game architectures.
             <br><br>
-            <span style="font-size: 0.9rem; opacity: 0.7;">Current: Playzhub • Exp: 1.8 Years</span>
+            <span style="font-size: 0.9rem; opacity: 0.7;">
+                🎯 Game Developer at Playzhub • 💼 Experience: 2+ Years • 🚀 Games Shipped: 10+
+            </span>
         </p>
         <div class="btn-group hidden">
             <a href="#projects" class="btn btn-primary">See My Games</a>
-            <a href="mailto:[YOUR EMAIL]" class="btn btn-secondary">Contact Me</a>
+            <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats hidden">
+            <div class="stat-item">
+                <span class="stat-number" data-count="10">0</span>
+                <span class="stat-label">Games Shipped</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="50000">0</span>
+                <span class="stat-label">Players Reached</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="6">0</span>
+                <span class="stat-label">Design Patterns</span>
+            </div>
         </div>
     </header>
 
-    <section class="container skills-section hidden">
-        <h2>Tech Stack</h2>
-        <div class="skills-grid">
-            <div class="glass-card">
-                <span class="skill-icon">⚡</span>
-                <h3>Cocos Creator</h3>
-                <p style="color:var(--text-muted); font-size: 0.9rem;">Primary Engine. Expert in TypeScript scripting
-                    and optimization.</p>
-            </div>
-            <div class="glass-card">
-                <span class="skill-icon">🛠</span>
-                <h3>Tools & Utils</h3>
-                <p style="color:var(--text-muted); font-size: 0.9rem;">Building extensions, responsive UI frameworks,
-                    and automation scripts.</p>
-            </div>
-            <div class="glass-card">
-                <span class="skill-icon">🎮</span>
-                <h3>Engines</h3>
-                <p style="color:var(--text-muted); font-size: 0.9rem;">Phaser.js (Proficient), Unity (Familiar).</p>
-            </div>
-            <div class="glass-card">
-                <span class="skill-icon">📐</span>
-                <h3>Engineering</h3>
-                <p style="color:var(--text-muted); font-size: 0.9rem;">Mech. Diploma background applied to game physics
-                    and logic.</p>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="hidden">About Me</h2>
+                    <p class="hidden">
+                        I'm a passionate game developer specializing in HTML5 games and Cocos Creator development.
+                        I build high-performance web games that run smoothly on low-end mobile browsers while
+                        maintaining
+                        high-quality gameplay.
+                    </p>
+                    <p class="hidden">
+                        For the past <strong>2+ years</strong>, I've been crafting engaging games at
+                        <strong>Playzhub</strong>,
+                        focusing on creating optimized, scalable game architectures. My work combines technical
+                        expertise
+                        with creative problem-solving to deliver exceptional gaming experiences.
+                    </p>
+                    <p class="hidden">
+                        What drives me? The challenge of building scalable architectures, implementing clean design
+                        patterns,
+                        and creating tools that make other developers' lives easier. I don't just write code—I architect
+                        experiences.
+                    </p>
+                    <div class="hidden" style="margin-top: var(--space-lg);">
+                        <a href="./assets/resume.pdf" class="btn btn-primary" download>Download Resume</a>
+                    </div>
+                </div>
+                <div class="about-image hidden">
+                    <img src="./assets/images/profile-placeholder.jpg" alt="Profile Photo"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'%3E%3Crect fill=\'%231a1a2e\' width=\'400\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'18\' fill=\'%23666\' text-anchor=\'middle\' dy=\'.3em\'%3EYour Photo Here%3C/text%3E%3C/svg%3E'">
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="container projects-section hidden">
-        <h2>Featured Works</h2>
-        <div class="project-grid">
-
-            <div class="glass-card">
-                <div class="project-img">GAME SCREENSHOT HERE</div>
-                <h3>Action Runner</h3>
-                <p style="margin: 10px 0; color: #ccc;">A fast-paced infinite runner optimized for low-end mobile
-                    browsers on Playzhub.</p>
-                <div class="tags">
-                    <span>Cocos Creator</span>
-                    <span>TypeScript</span>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="hidden text-center">Tech Stack & Tools</h2>
+            <div class="skills-grid">
+                <div class="glass-card hidden">
+                    <span class="skill-icon">⚡</span>
+                    <h3>Cocos Creator</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Primary engine with expert-level TypeScript scripting, optimization, and custom component
+                        development.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="90"></div>
+                    </div>
                 </div>
-                <br>
-                <a href="#" style="color: var(--neon-primary); font-weight: bold;">Play Demo →</a>
-            </div>
 
-            <div class="glass-card">
-                <div class="project-img">GAME SCREENSHOT HERE</div>
-                <h3>Puzzle Quest</h3>
-                <p style="margin: 10px 0; color: #ccc;">Logic puzzle game with 50+ levels. Implemented custom responsive
-                    layouts for foldable devices.</p>
-                <div class="tags">
-                    <span>Cocos Creator</span>
-                    <span>Algorithm</span>
+                <div class="glass-card hidden">
+                    <span class="skill-icon">💻</span>
+                    <h3>TypeScript / JavaScript</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Advanced OOP concepts, async patterns, and modern ES6+ features for game development.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="85"></div>
+                    </div>
                 </div>
-                <br>
-                <a href="#" style="color: var(--neon-primary); font-weight: bold;">Play Demo →</a>
-            </div>
 
-            <div class="glass-card">
-                <div class="project-img">GAME SCREENSHOT HERE</div>
-                <h3>Phaser Prototype</h3>
-                <p style="margin: 10px 0; color: #ccc;">Personal project exploring tilemap collisions and particle
-                    effects in Phaser.</p>
-                <div class="tags">
-                    <span>Phaser.js</span>
-                    <span>JavaScript</span>
+                <div class="glass-card hidden">
+                    <span class="skill-icon">🛠</span>
+                    <h3>Tools & Extensions</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Building editor extensions, responsive UI frameworks, asset automation scripts, and dev tools.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="80"></div>
+                    </div>
                 </div>
-                <br>
-                <a href="#" style="color: var(--neon-primary); font-weight: bold;">View Code →</a>
-            </div>
 
+                <div class="glass-card hidden">
+                    <span class="skill-icon">🎮</span>
+                    <h3>Other Engines</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Phaser.js (Proficient), Unity with C# (Familiar), experience with game physics and state
+                        management.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="70"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card hidden">
+                    <span class="skill-icon">📐</span>
+                    <h3>Engineering Background</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Mechanical diploma applied to game physics, optimization, and systematic problem-solving.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="75"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card hidden">
+                    <span class="skill-icon">🔧</span>
+                    <h3>Performance Optimization</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Memory management, draw call reduction, texture atlasing, and mobile web optimization.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="85"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="container tools-section hidden">
-        <h2>Engineering & Tools</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">I don't just play games; I build the tools to make
-            them better.</p>
+    <!-- Design Patterns Section -->
+    <section id="patterns" class="patterns-section">
+        <div class="container">
+            <h2 class="hidden text-center gradient-text">Game Design Patterns</h2>
+            <p class="patterns-intro hidden">
+                Understanding and implementing design patterns is crucial for building scalable, maintainable games.
+                Here are the patterns I frequently use in my projects:
+            </p>
 
-        <div style="display: grid; gap: 20px;">
-            <div class="glass-card"
-                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div>
-                    <h3 style="color: var(--neon-primary);">Responsive UI Utility</h3>
-                    <p style="font-size: 0.9rem; color: #ccc;">A Cocos component to handle safe-areas and aspect ratios
-                        automatically.</p>
+            <div class="patterns-grid">
+                <div class="glass-card pattern-card hidden" data-pattern="singleton">
+                    <span class="pattern-icon">🎯</span>
+                    <h3>Singleton Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Ensures only one instance of a class exists globally. Perfect for managers that need centralized
+                        access.
+                    </p>
+                    <p class="use-case">💡 Use Case: GameManager, AudioManager, EventBus</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            private static instance: GameManager;<br>
+                            public static getInstance() { ... }
+                        </code>
+                    </div>
                 </div>
-                <a href="#" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">View Logic</a>
-            </div>
 
-            <div class="glass-card"
-                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div>
-                    <h3 style="color: var(--neon-secondary);">Asset Compressor Ext.</h3>
-                    <p style="font-size: 0.9rem; color: #ccc;">Editor extension to automate texture settings for web
-                        builds.</p>
+                <div class="glass-card pattern-card hidden" data-pattern="observer">
+                    <span class="pattern-icon">👁️</span>
+                    <h3>Observer Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Event-driven communication where objects subscribe to and receive notifications about events.
+                    </p>
+                    <p class="use-case">💡 Use Case: Event systems, UI updates, game state changes</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            EventBus.on('SCORE_CHANGED', callback);<br>
+                            EventBus.emit('SCORE_CHANGED', score);
+                        </code>
+                    </div>
                 </div>
-                <span style="color: #666; font-size: 0.8rem;">Internal Tool</span>
+
+                <div class="glass-card pattern-card hidden" data-pattern="command">
+                    <span class="pattern-icon">⌨️</span>
+                    <h3>Command Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Encapsulates actions as objects, enabling undo/redo, input buffering, and action queuing.
+                    </p>
+                    <p class="use-case">💡 Use Case: Input handling, replay systems, turn-based games</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            interface Command { execute(), undo() }<br>
+                            commandQueue.push(new MoveCommand());
+                        </code>
+                    </div>
+                </div>
+
+                <div class="glass-card pattern-card hidden" data-pattern="state">
+                    <span class="pattern-icon">🔄</span>
+                    <h3>State Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Manages object behavior based on internal state. Clean transitions between game states.
+                    </p>
+                    <p class="use-case">💡 Use Case: Game states, AI behavior, player states</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            setState(new MenuState());<br>
+                            currentState.update();
+                        </code>
+                    </div>
+                </div>
+
+                <div class="glass-card pattern-card hidden" data-pattern="pool">
+                    <span class="pattern-icon">♻️</span>
+                    <h3>Object Pool Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Reuses objects instead of creating/destroying them. Critical for mobile performance.
+                    </p>
+                    <p class="use-case">💡 Use Case: Bullets, particles, enemies, UI elements</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            bullet = BulletPool.get();<br>
+                            BulletPool.return(bullet);
+                        </code>
+                    </div>
+                </div>
+
+                <div class="glass-card pattern-card hidden" data-pattern="factory">
+                    <span class="pattern-icon">🏭</span>
+                    <h3>Factory Pattern</h3>
+                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
+                        Creates objects without specifying exact class. Enables flexible object creation.
+                    </p>
+                    <p class="use-case">💡 Use Case: Enemy spawning, powerup generation, level creation</p>
+                    <div
+                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
+                        <code style="color: var(--neon-primary);">
+                            enemy = EnemyFactory.create(type);<br>
+                            powerup = PowerupFactory.random();
+                        </code>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="hidden text-center">Featured Works</h2>
+
+            <!-- Filter Buttons -->
+            <div class="filter-group hidden">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="cocos">Cocos Creator</button>
+                <button class="filter-btn" data-filter="phaser">Phaser.js</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="glass-card project-card hidden" data-category="cocos" data-date="2024-01">
+                    <div class="project-image">
+                        <img src="./assets/images/project-runner.jpg" alt="Action Runner Game"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>🏃 GAME SCREENSHOT</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Action Runner</h3>
+                    <p class="project-description">
+                        Fast-paced infinite runner optimized for low-end mobile browsers on Playzhub platform.
+                        Implemented object pooling and achieved 60 FPS on budget devices.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cocos Creator</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Mobile</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Play Demo →</a>
+                        <a href="#" class="project-link">View Code →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card project-card hidden" data-category="cocos" data-date="2023-11">
+                    <div class="project-image">
+                        <img src="./assets/images/project-puzzle.jpg" alt="Puzzle Quest Game"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>🧩 GAME SCREENSHOT</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Puzzle Quest</h3>
+                    <p class="project-description">
+                        Logic puzzle game with 50+ levels. Custom responsive layouts for foldable devices using
+                        State pattern for level progression and Command pattern for undo functionality.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cocos Creator</span>
+                        <span class="tag">Algorithm</span>
+                        <span class="tag">State Pattern</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Play Demo →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card project-card hidden" data-category="phaser" data-date="2023-08">
+                    <div class="project-image">
+                        <img src="./assets/images/project-phaser.jpg" alt="Phaser Prototype"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>🎲 GAME SCREENSHOT</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Phaser Prototype</h3>
+                    <p class="project-description">
+                        Personal project exploring tilemap collisions and particle effects in Phaser.
+                        Implemented Factory pattern for procedural level generation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Phaser.js</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Tilemaps</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Code →</a>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Tool -->
+                <div class="glass-card project-card hidden" data-category="tools" data-date="2024-02">
+                    <div class="project-image">
+                        <img src="./assets/images/project-ui-util.jpg" alt="Responsive UI Utility"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>🛠️ TOOL PREVIEW</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Responsive UI Utility</h3>
+                    <p class="project-description">
+                        Cocos Creator component to handle safe-areas and aspect ratios automatically.
+                        Used Singleton pattern for centralized resolution management.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cocos Creator</span>
+                        <span class="tag">UI Framework</span>
+                        <span class="tag">Singleton</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Logic →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Tool -->
+                <div class="glass-card project-card hidden" data-category="tools" data-date="2023-10">
+                    <div class="project-image">
+                        <img src="./assets/images/project-compressor.jpg" alt="Asset Compressor Extension"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>⚙️ EXTENSION PREVIEW</div>'">
+                        <div class="project-overlay">
+                            <span style="color: #666; font-size: 0.9rem;">Internal Tool</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Asset Compressor Extension</h3>
+                    <p class="project-description">
+                        Editor extension to automate texture settings for web builds. Reduced average game size by 40%
+                        while maintaining visual quality.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cocos Creator</span>
+                        <span class="tag">Extension</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <span style="color: #666;">Internal Tool</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="glass-card project-card hidden" data-category="cocos" data-date="2023-12">
+                    <div class="project-image">
+                        <img src="./assets/images/project-match3.jpg" alt="Match-3 Game"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>💎 GAME SCREENSHOT</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Match-3 Mania</h3>
+                    <p class="project-description">
+                        Classic match-3 puzzle with juicy animations. Implemented Object Pool pattern for gems
+                        and Observer pattern for combo notifications.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cocos Creator</span>
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Object Pool</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Play Demo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="hidden text-center">Let's Build Something Amazing</h2>
+
+            <div class="contact-container">
+                <div class="contact-info hidden">
+                    <h3>Get In Touch</h3>
+                    <p>
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        vision.
+                        Whether you need a game developer, technical consultant, or just want to say hi!
+                    </p>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:your.email@example.com">your.email@example.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Location</strong><br>
+                            India (Remote Available)
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Availability</strong><br>
+                            Open for freelance & full-time
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" class="social-icon" target="_blank"
+                            aria-label="GitHub">
+                            <span style="font-size: 1.5rem;">💻</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" class="social-icon" target="_blank"
+                            aria-label="LinkedIn">
+                            <span style="font-size: 1.5rem;">💼</span>
+                        </a>
+                        <a href="https://twitter.com/yourusername" class="social-icon" target="_blank"
+                            aria-label="Twitter">
+                            <span style="font-size: 1.5rem;">🐦</span>
+                        </a>
+                        <a href="https://itch.io/yourusername" class="social-icon" target="_blank" aria-label="Itch.io">
+                            <span style="font-size: 1.5rem;">🎮</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form hidden">
+                    <div class="form-success">Message sent successfully!</div>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name" class="form-label">Your Name</label>
+                            <input type="text" id="contact-name" class="form-input" placeholder="John Doe" required>
+                            <small class="form-error">Please enter your name</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email" class="form-label">Email Address</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="john@example.com"
+                                required>
+                            <small class="form-error">Please enter a valid email</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-subject" class="form-label">Subject</label>
+                            <input type="text" id="contact-subject" class="form-input" placeholder="Project Inquiry"
+                                required>
+                            <small class="form-error">Please enter a subject</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message" class="form-label">Message</label>
+                            <textarea id="contact-message" class="form-textarea"
+                                placeholder="Tell me about your project..." required></textarea>
+                            <small class="form-error">Message must be at least 10 characters</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">Ready to Level Up?</h2>
-            <p>Open for opportunities in HTML5 Game Development.</p>
-            <br>
-            <a href="mailto:your.email@example.com" class="btn btn-primary">Email Me</a>
-            <br><br>
-            <small>&copy; 2024 [Your Name]. Crafted with code.</small>
+            <div class="footer-cta">
+                <h2>Ready to Level Up?</h2>
+                <p>Let's create something extraordinary together.</p>
+                <a href="#contact" class="btn btn-primary">Start a Project</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/yourusername" class="social-icon" target="_blank" aria-label="GitHub">💻</a>
+                <a href="https://linkedin.com/in/yourusername" class="social-icon" target="_blank"
+                    aria-label="LinkedIn">💼</a>
+                <a href="https://twitter.com/yourusername" class="social-icon" target="_blank"
+                    aria-label="Twitter">🐦</a>
+                <a href="https://itch.io/yourusername" class="social-icon" target="_blank" aria-label="Itch.io">🎮</a>
+            </div>
+
+            <div class="footer-bottom">
+                <small>&copy; 2024 Amit Kumar. Crafted with code, powered by passion. ☕</small>
+            </div>
         </div>
     </footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        });
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-    </script>
+    <!-- JavaScript Files -->
+    <script src="./js/main.js"></script>
+    <script src="./js/animations.js"></script>
+    <script src="./js/contact.js"></script>
+    <script src="./js/filters.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,118 @@
+/* ==============================================
+   DESIGN TOKENS & CSS VARIABLES
+   ============================================== */
+
+:root {
+    /* --- COLOR PALETTE --- */
+    /* Dark Theme (Default) */
+    --bg-dark: #0a0a0e;
+    --bg-secondary: #15151a;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Neon Accents */
+    --neon-primary: #00f2ff;      /* Cyber Cyan */
+    --neon-secondary: #bd00ff;    /* Cyber Purple */
+    --neon-accent: #ff006e;       /* Hot Pink */
+    
+    /* Text Colors */
+    --text-main: #ffffff;
+    --text-muted: #b0b0b0;
+    --text-dark: #2a2a2a;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--neon-primary), var(--neon-secondary));
+    --gradient-card: linear-gradient(145deg, rgba(0, 242, 255, 0.1), rgba(189, 0, 255, 0.1));
+    
+    /* --- SPACING SCALE --- */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+    --space-2xl: 100px;
+    
+    /* --- TYPOGRAPHY --- */
+    --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3.5rem;
+    
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+    
+    /* --- BORDERS & RADIUS --- */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 50px;
+    
+    /* --- SHADOWS --- */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow-cyan: 0 0 20px rgba(0, 242, 255, 0.4);
+    --shadow-glow-purple: 0 0 20px rgba(189, 0, 255, 0.4);
+    
+    /* --- TRANSITIONS --- */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* --- Z-INDEX SCALE --- */
+    --z-base: 1;
+    --z-nav: 100;
+    --z-modal: 1000;
+    --z-tooltip: 1100;
+    
+    /* --- BREAKPOINTS (for JS usage) --- */
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-wide: 1200px;
+}
+
+/* --- LIGHT MODE THEME --- */
+[data-theme="light"] {
+    --bg-dark: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+    
+    --neon-primary: #0071e3;
+    --neon-secondary: #8e44ad;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --- PREFERS COLOR SCHEME --- */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg-dark: #f5f5f7;
+        --bg-secondary: #ffffff;
+        --glass-bg: rgba(0, 0, 0, 0.03);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        
+        --text-main: #1d1d1f;
+        --text-muted: #6e6e73;
+        
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+}
