@@ -56,7 +56,6 @@
                 <li><a href="#home" class="navbar-link active">Home</a></li>
                 <li><a href="#about" class="navbar-link">About</a></li>
                 <li><a href="#skills" class="navbar-link">Skills</a></li>
-                <li><a href="#patterns" class="navbar-link">Patterns</a></li>
                 <li><a href="#projects" class="navbar-link">Projects</a></li>
                 <li><a href="#contact" class="navbar-link">Contact</a></li>
                 <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
@@ -69,11 +68,11 @@
     <header id="home" class="container hero">
         <p class="hero-subtitle hidden" data-type="true">HI, I'M AMIT KUMAR</p>
         <h1 class="hidden">
-            HTML5 Game<br>
-            <span class="highlight">Architect</span>
+            Game<br>
+            <span class="highlight">Developer</span>
         </h1>
         <p class="hero-description hidden">
-            Specializing in <strong>Cocos Creator</strong> and TypeScript. I build high-performance web games,
+            Specializing in <strong>HTML5 Games</strong>. I build high-performance web games,
             custom engine tools, and scalable game architectures.
             <br><br>
             <span style="font-size: 0.9rem; opacity: 0.7;">
@@ -96,8 +95,8 @@
                 <span class="stat-label">Players Reached</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number" data-count="6">0</span>
-                <span class="stat-label">Design Patterns</span>
+                <span class="stat-number" data-count="2">0</span>
+                <span class="stat-label">Years Experience</span>
             </div>
         </div>
     </header>
@@ -144,11 +143,25 @@
         <div class="container">
             <h2 class="hidden text-center">Tech Stack & Tools</h2>
             <div class="skills-grid">
+                <!-- Primary Game Engine -->
                 <div class="glass-card hidden">
                     <span class="skill-icon">⚡</span>
                     <h3>Cocos Creator</h3>
                     <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Primary engine with expert-level TypeScript scripting, optimization, and custom component
+                        Primary engine with expert-level scripting, optimization, custom components, and 2+ years of
+                        production experience.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="90"></div>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="glass-card hidden">
+                    <span class="skill-icon">💻</span>
+                    <h3>TypeScript / JavaScript</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Expert in OOP, design patterns, async programming, and modern ES6+ features for game
                         development.
                     </p>
                     <div class="progress-bar">
@@ -157,44 +170,23 @@
                 </div>
 
                 <div class="glass-card hidden">
-                    <span class="skill-icon">💻</span>
-                    <h3>TypeScript / JavaScript</h3>
+                    <span class="skill-icon">�</span>
+                    <h3>C#</h3>
                     <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Advanced OOP concepts, async patterns, and modern ES6+ features for game development.
+                        Proficient in C# for Unity game development, including scripting, component systems, and
+                        gameplay logic.
                     </p>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="85"></div>
+                        <div class="progress-fill" data-progress="75"></div>
                     </div>
                 </div>
 
-                <div class="glass-card hidden">
-                    <span class="skill-icon">🛠</span>
-                    <h3>Tools & Extensions</h3>
-                    <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Building editor extensions, responsive UI frameworks, asset automation scripts, and dev tools.
-                    </p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-progress="80"></div>
-                    </div>
-                </div>
-
+                <!-- Other Game Engines -->
                 <div class="glass-card hidden">
                     <span class="skill-icon">🎮</span>
-                    <h3>Other Engines</h3>
+                    <h3>Phaser.js</h3>
                     <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Phaser.js (Proficient), Unity with C# (Familiar), experience with game physics and state
-                        management.
-                    </p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-progress="70"></div>
-                    </div>
-                </div>
-
-                <div class="glass-card hidden">
-                    <span class="skill-icon">📐</span>
-                    <h3>Engineering Background</h3>
-                    <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Mechanical diploma applied to game physics, optimization, and systematic problem-solving.
+                        Proficient in HTML5/WebGL game development, tilemaps, physics systems, and particle effects.
                     </p>
                     <div class="progress-bar">
                         <div class="progress-fill" data-progress="75"></div>
@@ -202,10 +194,24 @@
                 </div>
 
                 <div class="glass-card hidden">
+                    <span class="skill-icon">🎯</span>
+                    <h3>Unity Engine</h3>
+                    <p style="color:var(--text-muted); font-size: 0.9rem;">
+                        Working knowledge of Unity with C# scripting, prefabs, scene management, and cross-platform
+                        builds.
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="65"></div>
+                    </div>
+                </div>
+
+                <!-- Performance & Optimization -->
+                <div class="glass-card hidden">
                     <span class="skill-icon">🔧</span>
                     <h3>Performance Optimization</h3>
                     <p style="color:var(--text-muted); font-size: 0.9rem;">
-                        Memory management, draw call reduction, texture atlasing, and mobile web optimization.
+                        Memory management, draw call reduction, texture atlasing, object pooling, and mobile web
+                        optimization.
                     </p>
                     <div class="progress-bar">
                         <div class="progress-fill" data-progress="85"></div>
@@ -215,115 +221,6 @@
         </div>
     </section>
 
-    <!-- Design Patterns Section -->
-    <section id="patterns" class="patterns-section">
-        <div class="container">
-            <h2 class="hidden text-center gradient-text">Game Design Patterns</h2>
-            <p class="patterns-intro hidden">
-                Understanding and implementing design patterns is crucial for building scalable, maintainable games.
-                Here are the patterns I frequently use in my projects:
-            </p>
-
-            <div class="patterns-grid">
-                <div class="glass-card pattern-card hidden" data-pattern="singleton">
-                    <span class="pattern-icon">🎯</span>
-                    <h3>Singleton Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Ensures only one instance of a class exists globally. Perfect for managers that need centralized
-                        access.
-                    </p>
-                    <p class="use-case">💡 Use Case: GameManager, AudioManager, EventBus</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            private static instance: GameManager;<br>
-                            public static getInstance() { ... }
-                        </code>
-                    </div>
-                </div>
-
-                <div class="glass-card pattern-card hidden" data-pattern="observer">
-                    <span class="pattern-icon">👁️</span>
-                    <h3>Observer Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Event-driven communication where objects subscribe to and receive notifications about events.
-                    </p>
-                    <p class="use-case">💡 Use Case: Event systems, UI updates, game state changes</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            EventBus.on('SCORE_CHANGED', callback);<br>
-                            EventBus.emit('SCORE_CHANGED', score);
-                        </code>
-                    </div>
-                </div>
-
-                <div class="glass-card pattern-card hidden" data-pattern="command">
-                    <span class="pattern-icon">⌨️</span>
-                    <h3>Command Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Encapsulates actions as objects, enabling undo/redo, input buffering, and action queuing.
-                    </p>
-                    <p class="use-case">💡 Use Case: Input handling, replay systems, turn-based games</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            interface Command { execute(), undo() }<br>
-                            commandQueue.push(new MoveCommand());
-                        </code>
-                    </div>
-                </div>
-
-                <div class="glass-card pattern-card hidden" data-pattern="state">
-                    <span class="pattern-icon">🔄</span>
-                    <h3>State Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Manages object behavior based on internal state. Clean transitions between game states.
-                    </p>
-                    <p class="use-case">💡 Use Case: Game states, AI behavior, player states</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            setState(new MenuState());<br>
-                            currentState.update();
-                        </code>
-                    </div>
-                </div>
-
-                <div class="glass-card pattern-card hidden" data-pattern="pool">
-                    <span class="pattern-icon">♻️</span>
-                    <h3>Object Pool Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Reuses objects instead of creating/destroying them. Critical for mobile performance.
-                    </p>
-                    <p class="use-case">💡 Use Case: Bullets, particles, enemies, UI elements</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            bullet = BulletPool.get();<br>
-                            BulletPool.return(bullet);
-                        </code>
-                    </div>
-                </div>
-
-                <div class="glass-card pattern-card hidden" data-pattern="factory">
-                    <span class="pattern-icon">🏭</span>
-                    <h3>Factory Pattern</h3>
-                    <p style="color:var(--text-muted); margin: var(--space-sm) 0;">
-                        Creates objects without specifying exact class. Enables flexible object creation.
-                    </p>
-                    <p class="use-case">💡 Use Case: Enemy spawning, powerup generation, level creation</p>
-                    <div
-                        style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); font-family: monospace; font-size: 0.8rem;">
-                        <code style="color: var(--neon-primary);">
-                            enemy = EnemyFactory.create(type);<br>
-                            powerup = PowerupFactory.random();
-                        </code>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
@@ -335,6 +232,7 @@
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="cocos">Cocos Creator</button>
                 <button class="filter-btn" data-filter="phaser">Phaser.js</button>
+                <button class="filter-btn" data-filter="unity">Unity</button>
                 <button class="filter-btn" data-filter="tools">Tools</button>
             </div>
 
@@ -410,6 +308,30 @@
                     <div class="project-links">
                         <a href="#" class="project-link">View Code →</a>
                         <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3.5 - Unity -->
+                <div class="glass-card project-card hidden" data-category="unity" data-date="2023-09">
+                    <div class="project-image">
+                        <img src="./assets/images/project-unity.jpg" alt="Unity 3D Game"
+                            onerror="this.parentElement.innerHTML='<div style=\'color:#666;font-size:0.9rem;\'>🎯 GAME SCREENSHOT</div>'">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">3D Adventure Prototype</h3>
+                    <p class="project-description">
+                        Unity 3D game prototype featuring character controller, camera system, and interactive
+                        mechanics. Built with C# scripting and Unity's component-based architecture.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">3D Gameplay</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Code →</a>
                     </div>
                 </div>
 
@@ -524,25 +446,6 @@
                             <strong>Availability</strong><br>
                             Open for freelance & full-time
                         </div>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="social-links">
-                        <a href="https://github.com/yourusername" class="social-icon" target="_blank"
-                            aria-label="GitHub">
-                            <span style="font-size: 1.5rem;">💻</span>
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" class="social-icon" target="_blank"
-                            aria-label="LinkedIn">
-                            <span style="font-size: 1.5rem;">💼</span>
-                        </a>
-                        <a href="https://twitter.com/yourusername" class="social-icon" target="_blank"
-                            aria-label="Twitter">
-                            <span style="font-size: 1.5rem;">🐦</span>
-                        </a>
-                        <a href="https://itch.io/yourusername" class="social-icon" target="_blank" aria-label="Itch.io">
-                            <span style="font-size: 1.5rem;">🎮</span>
-                        </a>
                     </div>
                 </div>
 
