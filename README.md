@@ -17,8 +17,7 @@ A modern, feature-rich portfolio website for game developers. Built with vanilla
 - **Hero Section** - Eye-catching introduction with animated stats
 - **About Me** - Personal background and journey
 - **Skills** - Tech stack with animated progress bars
-- **Design Patterns** - Showcase of game development patterns with code examples
-- **Projects** - Filterable project gallery with modal details
+- **Projects** - Filterable project gallery
 - **Contact Form** - Validated form with real-time feedback
 
 ### Advanced Features
@@ -242,24 +241,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - **Fonts**: Google Fonts (Outfit)
 - **Built by**: Your Name
 - **Year**: 2024
-
----
-
-## 🎯 Game Development Design Patterns Featured
-
-This portfolio showcases understanding of key game development patterns:
-
-1. **Singleton Pattern** - For managers and global access
-2. **Observer Pattern** - Event-driven communication
-3. **Command Pattern** - Action encapsulation and undo/redo
-4. **State Pattern** - State machine management
-5. **Object Pool Pattern** - Performance optimization
-6. **Factory Pattern** - Flexible object creation
-
-Each pattern includes:
-- Real-world use cases
-- Code examples
-- Best practices
 
 ---
 

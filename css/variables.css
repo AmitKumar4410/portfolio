@@ -64,6 +64,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow-cyan: 0 0 20px rgba(30, 144, 255, 0.4);
     --shadow-glow-blue: 0 0 20px rgba(30, 144, 255, 0.4);
     --shadow-glow-royal: 0 0 20px rgba(65, 105, 225, 0.4);
 

@@ -4,15 +4,14 @@
 
 Your enhanced game developer portfolio is **100% complete** with:
 
-✨ **8 Major Sections**:
+✨ **7 Major Sections**:
 1. Fixed navigation with dark/light mode
 2. Hero section with animated stats
 3. About Me with your story
 4. Skills with progress bars (6 skills)
-5. Design Patterns showcase (6 patterns with code examples)
-6. Projects with filtering (6 projects)
-7. Contact form with validation
-8. Professional footer
+5. Projects with filtering (6 projects)
+6. Contact form with validation
+7. Professional footer
 
 📁 **File Structure**:
 - `index.html` - Main portfolio (617 lines)
@@ -106,7 +105,7 @@ Enable Pages in repo settings → Live at `https://YOUR_USERNAME.github.io/portf
 ## 🎯 What Makes Your Portfolio Special
 
 ✨ **Modern Design**: Glassmorphism, neon accents, smooth animations  
-🎮 **Game Dev Focused**: Showcases 6 design patterns with code  
+🎮 **Game Dev Focused**: Highlights shipped games and game-dev tooling work  
 ⚡ **Production Ready**: Clean code, well-documented, SEO-optimized  
 📱 **Fully Responsive**: Works perfectly on mobile, tablet, desktop  
 🌓 **Dark/Light Mode**: Automatic theme with persistence  

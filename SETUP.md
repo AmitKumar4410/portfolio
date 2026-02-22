@@ -79,7 +79,6 @@ Then visit: http://localhost:8000
 - Responsive design (mobile, tablet, desktop)
 - Contact form with validation
 - Project filtering system
-- Design patterns showcase
 - Professional navigation
 - SEO-optimized meta tags
 
@@ -114,20 +113,6 @@ Then enable GitHub Pages in repository settings.
 1. Go to https://app.netlify.com/drop
 2. Drag & drop your `portfolio` folder
 3. Done! Your site is live.
-
----
-
-## 🎮 Design Patterns Included
-
-Your portfolio showcases 6 key gaming patterns:
-1. Singleton - Game managers
-2. Observer - Event systems
-3. Command - Input handling
-4. State - State machines
-5. Object Pool - Performance
-6. Factory - Object creation
-
-This demonstrates your architectural knowledge to potential employers!
 
 ---
 

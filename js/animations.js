@@ -95,7 +95,6 @@ function staggerAnimation(parentSelector, childSelector, delay = 100) {
 
 // Apply stagger animations to grids
 staggerAnimation('.skills-grid', '.glass-card', 100);
-staggerAnimation('.patterns-grid', '.glass-card', 100);
 staggerAnimation('.project-grid', '.glass-card', 150);
 
 // Hover Tilt Effect for Cards (3D Effect)
