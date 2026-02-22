@@ -109,8 +109,8 @@ cards.forEach(card => {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
+        const rotateX = (y - centerY) / 40;
+        const rotateY = (centerX - x) / 40;
 
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
     });

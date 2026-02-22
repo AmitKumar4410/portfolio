@@ -122,7 +122,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Typing Effect for Hero Text (Optional Enhancement)
-function typeWriter(element, text, speed = 50) {
+function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
 
