@@ -245,6 +245,19 @@
     color: var(--neon-primary);
     margin-bottom: var(--space-sm);
     display: block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.skill-icon-group {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    align-items: center;
+}
+
+.skill-icon-group .skill-icon {
+    margin-bottom: 0;
 }
 
 /* --- FILTER BUTTONS --- */
