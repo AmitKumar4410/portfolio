@@ -58,29 +58,11 @@ contactForm?.addEventListener('submit', async (e) => {
     submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
 
     try {
-        // Option 1: Use FormSpree (replace with your FormSpree endpoint)
-        // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // });
+        // Initialize EmailJS with your Public Key
+        emailjs.init("rGo2ZDTYxJFKEwF-k");
 
-        // Option 2: Use Netlify Forms (if hosted on Netlify)
-        // The form will automatically submit to Netlify
-
-        // Option 3: Custom backend endpoint
-        // const response = await fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // });
-
-        // For demo purposes, simulate a successful submission
-        await simulateSubmission();
+        //Send form using EmailJS
+        await emailjs.sendForm('service_iv6cyb6', 'template_zx6xfje', '#contact-form');
 
         // Show success message
         showSuccess('Message sent successfully! I\'ll get back to you soon.');
